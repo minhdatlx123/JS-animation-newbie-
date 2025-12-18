@@ -78,9 +78,11 @@
                 clearInterval(this.interval);
             } 
         }
-        const circle1 = new Circle(50, 5, 200, 300, 1, -1);
-        circle1.generateHTML();
-        circle1.move();
+        document.addEventListener('click', function (e) {
+            const circle1 = new Circle(50, 5, 200, 300, 1, -1);
+            circle1.generateHTML();
+            circle1.move();
+        })
         </script>
 </body>
 </html>
