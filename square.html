@@ -3,93 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\\, initial-scale=1.0">
+    <link rel="stylesheet" href="styling.css">
     <title>Document</title>
 </head>
 <body>
-    <style>
-        *{
-            box-sizing: border-box;
-            margin: 0;
-        }
-        .example{
-            width: 100px;
-            height: 100px;
-            background: red;
-            position: absolute;
-            left: 0px;
-            border-radius: 100%;
-            animation: pingpong 2s linear infinite alternate;
-        }
-        .example:nth-child(2) {
-            background: blue;
-        }
-        .container {
-            display:flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            user-select: none;
-        }
-    </style>
-    <div class="container"> Click on screen
+<div class="container"> Click on screen
     </div>
-    <script>
-        const randomColor = () => {
-            const hexaString = '0123456789abcdef';
-            let color = '#';
-            for(let i = 0; i < 6; i++) {
-                const randomCharacter = hexaString[Math.floor(Math.random() * 16)]
-                color = color + randomCharacter
-            } return color;
-        }
-        const container = document.querySelector('.container');
-        function Circle (size, speed, x, y, directionX, directionY) {
-            this.htmlElement = null;
-            this.color = randomColor();
-            this.size = size;
-            this.speed = speed;
-            this.x = x;
-            this.y = y;
-            this.directionX = directionX;
-            this.directionY = directionY;
-            this.interval = null;
-
-            this.generateHTML = function() {
-                const circle = document.createElement('div');
-                circle.classList.add('example');
-                circle.style.width = this.size + 'px';
-                circle.style.height = this.size + 'px';
-                circle.style.left = this.x + 'px';
-                circle.style.top = this.y + 'px';
-                circle.style.background = this.color;
-                container.appendChild(circle);
-                this.htmlElement = circle;
-            }
-            this.move = function () {
-                requestAnimationFrame(() => {
-                    if (this.x + this.size >= window.innerWidth || this.x <= 0) {
-                        this.directionX = this.directionX * -1
-                    }
-                    if ( this.y + this.size >= window.innerHeight || this.y <=0){
-                        this.directionY = this.directionY * -1
-                    }
-                    this.x = this.x + (this.directionX * this.speed);
-                    this.y = this.y + (this.directionY * this.speed);
-                    this.htmlElement.style.left = this.x + 'px';
-                    this.htmlElement.style.top = this.y + 'px';
-                    this.move();
-                })
-            }
-
-            this.stop = function () {
-                clearInterval(this.interval);
-            } 
-        }
-        document.addEventListener('click', function (e) {
-            const circle1 = new Circle(50, 5, 200, 300, 1, -1);
-            circle1.generateHTML();
-            circle1.move();
-        })
-        </script>
+<script src="animation.js"></script>
 </body>
 </html>
