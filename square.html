@@ -27,10 +27,18 @@
     <div class="container">
     </div>
     <script>
+        const randomColor = () => {
+            const hexaString = '0123456789abcdef';
+            let color = '#';
+            for(let i = 0; i < 6; i++) {
+                const randomCharacter = hexaString[Math.floor(Math.random() * 16)]
+                color = color + randomCharacter
+            } return color;
+        }
         const container = document.querySelector('.container');
-        function Circle (color, size, speed, x, y, directionX, directionY) {
+        function Circle (size, speed, x, y, directionX, directionY) {
             this.htmlElement = null;
-            this.color = color;
+            this.color = randomColor();
             this.size = size;
             this.speed = speed;
             this.x = x;
@@ -70,7 +78,7 @@
                 clearInterval(this.interval);
             } 
         }
-        const circle1 = new Circle('red', 50, 5, 200, 300, 1, -1);
+        const circle1 = new Circle(50, 5, 200, 300, 1, -1);
         circle1.generateHTML();
         circle1.move();
         </script>
