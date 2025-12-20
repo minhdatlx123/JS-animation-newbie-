@@ -49,8 +49,11 @@ const randomColor = () => {
                 clearInterval(this.interval);
             } 
         }
+        function randomDirection() {
+            return Math.random() > 0.5 ? 1 : -1;
+        }
         document.addEventListener('click', function (e) {
-            const circle1 = new Circle(50, 5, 200, 300, 1, -1);
+            const circle1 = new Circle(50, 5, e.clientX, e.clientY, randomDirection(), randomDirection());
             circle1.generateHTML();
             circle1.move();
         })
