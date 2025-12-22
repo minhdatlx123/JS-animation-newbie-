@@ -1,23 +1,23 @@
-  *{
-    box-sizing: border-box;
-    margin: 0;
-    }
+*{
+ box-sizing: border-box;
+ margin: 0;
+}
 .example{
-            width: 100px;
-            height: 100px;
-            background: red;
-            position: absolute;
-            left: 0px;
-            border-radius: 100%;
-            animation: pingpong 2s linear infinite alternate;
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: absolute;
+  left: 0px;
+  border-radius: 100%;
+  animation: pingpong 2s linear infinite alternate;
 }
 .example:nth-child(2) {
-            background: blue;
-        }
-        .container {
-            display:flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            user-select: none;
-        }
+ background: blue;
+}
+.container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  user-select: none;
+}
